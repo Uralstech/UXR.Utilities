@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Uralstech.Utils.Singleton;
 
 namespace Uralstech.UXR.Utilities
@@ -12,18 +13,19 @@ namespace Uralstech.UXR.Utilities
         /// <summary>
         /// Use this boolean to toggle movement.
         /// </summary>
+        [Tooltip("Boolean to toggle movement.")]
         public bool MovementEnabled = true;
 
         /// <summary>
         /// The movement speed.
         /// </summary>
         [Tooltip("The movement speed.")]
-        public float MoveSpeed = 3f;
+        [FormerlySerializedAs("MoveSpeed")] public float MovementSpeed = 3f;
 
         /// <summary>
         /// Snap turn angle.
         /// </summary>
-        [Tooltip("Snap turn angle")]
+        [Tooltip("Snap turn angle.")]
         public float RotationSnapAngle = 30f;
 
         private Transform _playerHeadTransform;
@@ -51,7 +53,7 @@ namespace Uralstech.UXR.Utilities
             {
                 Vector2 primaryThumbstick = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
                 Vector3 moveDirection = ((_playerHeadTransform.forward * primaryThumbstick.y) + (_playerHeadTransform.right * primaryThumbstick.x)).normalized;
-                _rigidbody.linearVelocity = new Vector3(moveDirection.x * MoveSpeed, _rigidbody.linearVelocity.y, moveDirection.z * MoveSpeed);
+                _rigidbody.linearVelocity = new Vector3(moveDirection.x * MovementSpeed, _rigidbody.linearVelocity.y, moveDirection.z * MovementSpeed);
             }
 
             Vector2 secondaryThumbstick = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);

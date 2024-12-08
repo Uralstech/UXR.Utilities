@@ -25,7 +25,7 @@ namespace Uralstech.UXR.Utilities
         public Action<string> OnTextChanged { get; set; }
 
         /// <inheritdoc/>
-        [field: SerializeField] public bool SubmitOnEnter { get; set; }  = true;
+        [field: SerializeField] public bool SubmitOnEnter { get; set; } = true;
 
         /// <inheritdoc/>
         public bool IsFocused { get; private set; }

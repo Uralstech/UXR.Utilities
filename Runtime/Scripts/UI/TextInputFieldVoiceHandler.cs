@@ -5,15 +5,42 @@ using UnityEngine.UI;
 
 namespace Uralstech.UXR.Utilities
 {
+    /// <summary>
+    /// Sister-script to <see cref="TextInputField"/> which adds support for voice typing through Meta's Voice SDK.
+    /// </summary>
+    /// <remarks>
+    /// Requires a <see cref="DictationService"/> somewhere in the scene.
+    /// </remarks>
     [AddComponentMenu("Uralstech/UXR/Utilities/UI/Text Input Field Voice Handler"), RequireComponent(typeof(TextInputField))]
     public class TextInputFieldVoiceHandler : MonoBehaviour
     {
+        /// <summary>
+        /// Is the user currently voice typing?
+        /// </summary>
         public bool IsRecording { get; private set; } = false;
 
+        /// <summary>
+        /// The button to toggle voice typing.
+        /// </summary>
+        [Tooltip("The button to toggle voice typing.")]
         public Button ToggleButton;
+
+        /// <summary>
+        /// Optional, the icon for <see cref="ToggleButton"/> that will be changed based on the current recording state.
+        /// </summary>
+        [Tooltip("Optional, the icon for ToggleButton that will be changed based on the current recording state.")]
         public Image ToggleButtonIcon;
 
+        /// <summary>
+        /// Optional, icon to set for <see cref="ToggleButtonIcon"/> while not recording the user's audio.
+        /// </summary>
+        [Tooltip("Optional, icon to set for ToggleButtonIcon while not recording the user's audio.")]
         public Sprite StartRecordingIcon;
+
+        /// <summary>
+        /// Optional, icon to set for <see cref="ToggleButtonIcon"/> while recording the user's audio.
+        /// </summary>
+        [Tooltip("Optional, icon to set for ToggleButtonIcon while recording the user's audio.")]
         public Sprite StopRecordingIcon;
 
         private TextInputField _inputField;
@@ -24,7 +51,9 @@ namespace Uralstech.UXR.Utilities
         private void Start()
         {
             ToggleButton.onClick.AddListener(OnToggleRecording);
-            ToggleButtonIcon.sprite = StartRecordingIcon;
+
+            if (ToggleButtonIcon != null)
+                ToggleButtonIcon.sprite = StartRecordingIcon;
 
             _dictation = FindAnyObjectByType<DictationService>();
             _inputField = GetComponent<TextInputField>();
@@ -67,8 +96,10 @@ namespace Uralstech.UXR.Utilities
 
             Debug.Log($"{nameof(TextInputFieldVoiceHandler)}: Starting dictation.");
             _previousPartialTranscription = string.Empty;
-            ToggleButtonIcon.sprite = StopRecordingIcon;
             IsRecording = true;
+
+            if (ToggleButtonIcon != null)
+                ToggleButtonIcon.sprite = StopRecordingIcon;
 
             VoiceServiceRequestEvents events = new();
             events.OnFullTranscription.AddListener(OnFullTranscription);
@@ -79,8 +110,10 @@ namespace Uralstech.UXR.Utilities
         private void StopRecording()
         {
             Debug.Log($"{nameof(TextInputFieldVoiceHandler)}: Stopping dictation.");
-            ToggleButtonIcon.sprite = StartRecordingIcon;
             IsRecording = false;
+
+            if (ToggleButtonIcon != null)
+                ToggleButtonIcon.sprite = StartRecordingIcon;
 
             if (_dictation.Active)
                 _dictation.Deactivate();
@@ -97,7 +130,7 @@ namespace Uralstech.UXR.Utilities
 
             _previousPartialTranscription = transcription;
         }
-        
+
         private void OnFullTranscription(string transcription)
         {
             OnPartialTranscription(transcription, true);
