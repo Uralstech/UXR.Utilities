@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2aba0a333e8d7c844a4a7ef4574424c2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlayerTransform: {instanceID: 0}
+  - KeyboardPrefab: {fileID: 7386400244374833351, guid: c96c96f482eb1c84f8455b922ea4a933, type: 3}
+  - LeftControllerRootTransform: {instanceID: 0}
+  - LeftControllerDirectTransform: {instanceID: 0}
+  - RightControllerRootTransform: {instanceID: 0}
+  - RightControllerDirectTransform: {instanceID: 0}
+  - LeftOVRHand: {instanceID: 0}
+  - RightOVRHand: {instanceID: 0}
+  - NormalHandMaterial: {instanceID: 0}
+  - TypingHandMaterial: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

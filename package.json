@@ -1,0 +1,28 @@
+
+{
+    "name": "com.uralstech.uxr.utilities",
+    "displayName": "UXR.Utilities",
+    "description": "Random helper scripts I made for Meta Quest XR projects.",
+    "keywords": [ ],
+    "version": "1.0.0-preview.1",
+    "unity": "6000.0",
+    "hideInEditor": false,
+    "documentationUrl": "https://uralstech.github.io/UXR.Utilities/",
+    "changelogUrl": "https://github.com/Uralstech/UXR.Utilities/releases",
+    "licensesUrl": "https://github.com/Uralstech/UXR.Utilities/blob/master/LICENSE",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "repository": "https://github.com/Uralstech/UXR.Utilities.git"
+    },
+    "author": {
+      "name": "Udayshankar Ravikumar",
+      "url": "https://github.com/Uralstech"
+    },
+    "dependencies": {
+      "com.uralstech.utils.singleton": "1.1.1",
+      "com.meta.xr.sdk.voice": "71.0.0",
+      "com.meta.xr.sdk.core": "71.0.0",
+      "com.unity.ugui": "2.0.0"
+    }
+  }
