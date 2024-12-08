@@ -104,13 +104,13 @@ namespace Uralstech.UXR.Utilities
         /// </summary>
         [Header("Callbacks")]
         [Tooltip("Called when the keyboard is created.")]
-        public UnityEvent OnKeyboardCreated = new();
+        [FormerlySerializedAs("OnKeyboardCreated")] public UnityEvent OnKeyboardShown = new();
 
         /// <summary>
         /// Called when the keyboard is destroyed.
         /// </summary>
         [Tooltip("Called when the keyboard is destroyed.")]
-        public UnityEvent OnKeyboardDestroyed = new();
+        [FormerlySerializedAs("OnKeyboardDestroyed")] public UnityEvent OnKeyboardHidden = new();
 
         /// <summary>
         /// The current instance of the <see cref="OVRVirtualKeyboard"/>.
@@ -172,7 +172,7 @@ namespace Uralstech.UXR.Utilities
                 SimpleMovementController.Instance.MovementEnabled = false;
 
             SetHandMaterial(TypingHandMaterial);
-            OnKeyboardCreated.Invoke();
+            OnKeyboardShown.Invoke();
         }
 
         private void HideKeyboard()
@@ -191,7 +191,7 @@ namespace Uralstech.UXR.Utilities
                 SimpleMovementController.Instance.MovementEnabled = true;
 
             SetHandMaterial(NormalHandMaterial);
-            OnKeyboardDestroyed.Invoke();
+            OnKeyboardHidden.Invoke();
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace Uralstech.UXR.Utilities
         /// <summary>
         /// Unbinds the given object from the keyboard.
         /// </summary>
-        /// <param name="listener">The object to unbind from the keyboard.</param>
+        /// <param name="listener">The object to unbind from the keyboard. Must be the same as <see cref="CurrentListener"/>.</param>
         public void RemoveListener(OVRVirtualKeyboard.ITextHandler listener)
         {
             if (!ReferenceEquals(CurrentListener, listener) || listener == null)

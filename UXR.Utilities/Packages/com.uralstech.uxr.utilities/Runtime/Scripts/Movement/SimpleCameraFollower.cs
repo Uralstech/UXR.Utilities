@@ -101,7 +101,7 @@ namespace Uralstech.UXR.Utilities
                 || verticalSeperationDistance < _adjustedLowerHeightOffset
                 || angle > RotationDelayAngle)
             {
-                _targetPosition = _playerHeadTransform.position + Quaternion.Euler(0f, _playerHeadTransform.eulerAngles.y, 0f) * Vector3.forward * DistanceOffset + Vector3.up * HeightOffset;
+                _targetPosition = _playerHeadTransform.position + (Quaternion.Euler(0f, _playerHeadTransform.eulerAngles.y, 0f) * Vector3.forward * DistanceOffset) + (Vector3.up * HeightOffset);
                 _targetRotation = Quaternion.Euler(0f, _playerHeadTransform.rotation.eulerAngles.y, 0f) * Quaternion.Euler(RotationOffset);
             }
 

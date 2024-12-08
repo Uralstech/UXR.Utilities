@@ -17,6 +17,16 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.meta.xr.sdk.interaction.ovr": {
+      "version": "71.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.meta.xr.sdk.core": "71.0.0",
+        "com.meta.xr.sdk.interaction": "71.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.meta.xr.sdk.voice": {
       "version": "71.0.0",
       "depth": 1,
@@ -117,6 +127,12 @@
         "com.unity.ugui": "2.0.0"
       }
     },
+    "com.unity.modules.ai": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.modules.androidjni": {
       "version": "1.0.0",
       "depth": 0,
@@ -156,6 +172,12 @@
     "com.unity.modules.jsonserialize": {
       "version": "1.0.0",
       "depth": 1,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.modules.particlesystem": {
+      "version": "1.0.0",
+      "depth": 0,
       "source": "builtin",
       "dependencies": {}
     },
