@@ -23,7 +23,7 @@ namespace Uralstech.UXR.Utilities
         [FormerlySerializedAs("_player")] public Transform PlayerTransform;
 
         /// <summary>
-        /// <see cref="OVRVirtualKeyboard"> prefab to spawn when needed.
+        /// <see cref="OVRVirtualKeyboard"/> prefab to spawn when needed.
         /// </summary>
         [Tooltip("OVRVirtualKeyboard prefab to spawn when needed.")]
         [FormerlySerializedAs("_keyboardPrefab")] public OVRVirtualKeyboard KeyboardPrefab;
