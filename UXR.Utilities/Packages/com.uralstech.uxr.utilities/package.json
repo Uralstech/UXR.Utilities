@@ -4,7 +4,7 @@
     "displayName": "UXR.Utilities",
     "description": "Random helper scripts I made for Meta Quest XR projects.",
     "keywords": [ ],
-    "version": "1.0.0-preview.2",
+    "version": "1.0.0-preview.3",
     "unity": "6000.0",
     "hideInEditor": false,
     "documentationUrl": "https://uralstech.github.io/UXR.Utilities/",

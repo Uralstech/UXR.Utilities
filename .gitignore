@@ -1,1 +1,5 @@
 .vs/
+/UXR.Utilities/ProjectSettings/wit.config
+/UXR.Utilities/ProjectSettings/WitConfigExports
+/UXR.Utilities/Assets/Oculus/Voice
+/UXR.Utilities/Assets/Oculus/Voice.meta
