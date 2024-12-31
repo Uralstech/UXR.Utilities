@@ -72,6 +72,7 @@ namespace Uralstech.UXR.Utilities
         /// <summary>
         /// The OVRHand script for left hand input.
         /// </summary>
+        [Header("Hand Input")]
         [Tooltip("The OVRHand script for left hand input.")]
         [FormerlySerializedAs("_leftOVRHand")] public OVRHand LeftOVRHand;
 
@@ -84,6 +85,7 @@ namespace Uralstech.UXR.Utilities
         /// <summary>
         /// Should the hand tracking material be changed depending on if the keyboard is being used?
         /// </summary>
+        [Header("Hand Material Switching")]
         [Tooltip("Should the hand tracking material be changed depending on if the keyboard is being used?")]
         [FormerlySerializedAs("_useDifferentMaterialsForHandsWhenTyping")] public bool UseDifferentMaterialsForHandsWhenTyping;
 

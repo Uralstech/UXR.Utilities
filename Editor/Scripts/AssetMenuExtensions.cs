@@ -26,6 +26,25 @@ namespace Uralstech.UXR.Utilities.Editor
                 Debug.LogError($"Could not find prefab for XR Input Field with Voice at path: {prefabPath}. Verify the path and ensure it exists in the package.");
         }
 
+        [MenuItem("GameObject/XR/XR Keyboard Manager", false, 10)]
+        private static void CreateXRKeyboardManager()
+        {
+            // 1. Create a new empty game object.
+            GameObject keyboardManager = new(nameof(XRKeyboardManager));
+
+            // 2. Add the XRKeyboardManager Component to the new Gameobject.
+            keyboardManager.AddComponent<XRKeyboardManager>();
+
+            // 3. Place it in the scene
+            keyboardManager.transform.SetParent(Selection.activeTransform, false);
+
+            // 4. Handle Undo
+            Undo.RegisterCreatedObjectUndo(keyboardManager, $"Create {nameof(XRKeyboardManager)}");
+
+            // 5. Select the created game object.
+            Selection.activeGameObject = keyboardManager;
+        }
+
         private static bool InstantiatePrefab(string relativePrefabPath, out string prefabPath, bool overridePackagePathCache = false)
         {
             prefabPath = string.Empty;
