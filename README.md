@@ -8,6 +8,7 @@ Random helper scripts I made for Meta Quest XR projects.
 ## Installation
 
 This *should* work on any reasonably modern Unity version. Built and tested in Unity 6.0.
+Since I can't test the package on older versions of Unity, I have set the minimum version to Unity 6.0.
 
 ### OpenUPM
 
