@@ -45,10 +45,10 @@ namespace Uralstech.UXR.Utilities
 
         private TextInputField _inputField;
         private DictationService _dictation;
-        private string _previousPartialTranscription = string.Empty;
         private VoiceServiceRequest _currentSynthesisRequest;
+        private string _previousPartialTranscription = string.Empty;
 
-        private void Start()
+        protected void Start()
         {
             ToggleButton.onClick.AddListener(OnToggleRecording);
 

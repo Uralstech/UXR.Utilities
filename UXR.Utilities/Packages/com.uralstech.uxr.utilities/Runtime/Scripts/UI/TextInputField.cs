@@ -13,8 +13,13 @@ namespace Uralstech.UXR.Utilities
     [AddComponentMenu("Uralstech/UXR/Utilities/UI/Text Input Field")]
     public class TextInputField : Selectable, IPointerClickHandler, OVRVirtualKeyboard.ITextHandler
     {
+#pragma warning disable IDE1006 // Naming Styles
         [Obsolete("Use TextInputField.Text instead.")]
         public string text => Text;
+
+        [Obsolete("Use TextInputField.OnFieldEdited instead.")]
+        public UnityEvent<string> onValueChanged => OnFieldEdited;
+#pragma warning restore IDE1006 // Naming Styles
 
         /// <summary>
         /// The text entered by the user.
@@ -29,9 +34,6 @@ namespace Uralstech.UXR.Utilities
 
         /// <inheritdoc/>
         public bool IsFocused { get; private set; }
-
-        [Obsolete("Use TextInputField.OnFieldEdited instead.")]
-        public UnityEvent<string> onValueChanged => OnFieldEdited;
 
         /// <summary>
         /// Called when the input field has been edited.

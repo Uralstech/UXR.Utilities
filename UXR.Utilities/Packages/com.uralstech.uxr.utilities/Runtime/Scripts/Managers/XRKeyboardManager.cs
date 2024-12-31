@@ -120,7 +120,7 @@ namespace Uralstech.UXR.Utilities
         private SkinnedMeshRenderer _leftHandRenderer;
         private SkinnedMeshRenderer _rightHandRenderer;
 
-        private void Start()
+        protected void Start()
         {
             Debug.Log("Creating new keyboard!");
 

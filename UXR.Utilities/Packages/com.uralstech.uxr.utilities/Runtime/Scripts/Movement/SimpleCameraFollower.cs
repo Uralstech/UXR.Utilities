@@ -61,7 +61,7 @@ namespace Uralstech.UXR.Utilities
         private Vector3 _targetPosition = Vector3.zero;
         private Quaternion _targetRotation = Quaternion.identity;
 
-        private void Start()
+        protected void Start()
         {
             // Find the OVRCameraRig in the scene
             OVRCameraRig cameraRig = FindAnyObjectByType<OVRCameraRig>();
@@ -79,7 +79,7 @@ namespace Uralstech.UXR.Utilities
             _adjustedLowerHeightOffset = Mathf.Abs(HeightOffset) - MovementDelayDistance;
         }
 
-        private void LateUpdate()
+        protected void LateUpdate()
         {
             if (_playerHeadTransform == null)
                 return;
