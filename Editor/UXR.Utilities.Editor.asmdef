@@ -1,0 +1,16 @@
+{
+    "name": "UXR.Utilities.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e5eb8fa34b6686645a9a31dab0670e46"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

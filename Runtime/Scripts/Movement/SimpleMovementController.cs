@@ -32,7 +32,7 @@ namespace Uralstech.UXR.Utilities
         private Rigidbody _rigidbody;
         private int _registeredInput = 0;
 
-        private void Start()
+        protected void Start()
         {
             // Find the OVRCameraRig in the scene
             OVRCameraRig cameraRig = FindAnyObjectByType<OVRCameraRig>();
@@ -47,7 +47,7 @@ namespace Uralstech.UXR.Utilities
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (MovementEnabled)
             {

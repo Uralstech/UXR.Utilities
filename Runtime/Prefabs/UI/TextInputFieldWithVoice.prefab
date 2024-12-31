@@ -130,7 +130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2105622338952489182, guid: 0f9bbe7a189b6b944ad276f8003105c1, type: 3}
       propertyPath: m_Name
-      value: TextInputFieldWithVoice Variant
+      value: TextInputFieldWithVoice
       objectReference: {fileID: 0}
     - target: {fileID: 2250825493599959327, guid: 0f9bbe7a189b6b944ad276f8003105c1, type: 3}
       propertyPath: m_Pivot.x
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250825493599959327, guid: 0f9bbe7a189b6b944ad276f8003105c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 43.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2250825493599959327, guid: 0f9bbe7a189b6b944ad276f8003105c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
