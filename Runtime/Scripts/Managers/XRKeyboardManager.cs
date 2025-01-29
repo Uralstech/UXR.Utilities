@@ -33,8 +33,8 @@ namespace Uralstech.UXR.Utilities
         /// <summary>
         /// The player <see cref="Transform"/>. The keyboard will spawn relative to this object's position. Defaults to first OVRCameraRig found in the scene.
         /// </summary>
-        [Tooltip("The player transform. The keyboard will spawn relative to this object's position. Defaults to first OVRCameraRig found in the scene.")]
-        [FormerlySerializedAs("_player")] public Transform PlayerTransform;
+        [Tooltip("The player's head transform. The keyboard will spawn relative to this object's position. Defaults to first Camera.main found in the scene.")]
+        public Transform PlayerHead;
 
         /// <summary>
         /// <see cref="OVRVirtualKeyboard"/> prefab to spawn when needed.
@@ -116,6 +116,24 @@ namespace Uralstech.UXR.Utilities
         [FormerlySerializedAs("_typingHandMaterial")] public Material TypingHandMaterial;
 
         /// <summary>
+        /// The initial rotation of the keyboard, relative to the player's forward direction.
+        /// </summary>
+        [Tooltip("The initial rotation of the keyboard, relative to the player's forward direction.")]
+        public Vector3 InitialRotation;
+
+        /// <summary>
+        /// The initial position of the keyboard, when shown, relative to the player.
+        /// </summary>
+        [Tooltip("The initial position of the keyboard, when shown, relative to the player.")]
+        public Vector3 InitialPosition;
+
+        /// <summary>
+        /// The initial distance of the keyboard, when shown, from the player's forward direction.
+        /// </summary>
+        [Tooltip("The initial distance of the keyboard, when shown, from the player's forward direction.")]
+        public float InitialDistance;
+
+        /// <summary>
         /// Called when the keyboard is created.
         /// </summary>
         [Header("Callbacks")]
@@ -151,10 +169,10 @@ namespace Uralstech.UXR.Utilities
 
             KeyboardPrefab.gameObject.SetActive(false);
 
-            if (PlayerTransform == null)
-                PlayerTransform = FindAnyObjectByType<OVRCameraRig>().transform;
+            if (PlayerHead == null)
+                PlayerHead = Camera.main.transform;
 
-            KeyboardInstance = Instantiate(KeyboardPrefab, PlayerTransform.position, Quaternion.identity);
+            KeyboardInstance = Instantiate(KeyboardPrefab, Vector3.zero, Quaternion.identity);
 
             KeyboardInstance.KeyboardHiddenEvent.AddListener(HideKeyboard);
             KeyboardInstance.EnterEvent.AddListener(HideKeyboard);
@@ -181,6 +199,9 @@ namespace Uralstech.UXR.Utilities
         {
             KeyboardInstance.gameObject.SetActive(true);
             KeyboardInstance.TextHandler = CurrentListener;
+            KeyboardInstance.transform.SetPositionAndRotation(
+                PlayerHead.position + InitialPosition + (PlayerHead.forward * InitialDistance),
+                Quaternion.Euler(0f, PlayerHead.rotation.eulerAngles.y, 0f) * Quaternion.Euler(InitialRotation));
 
             Debug.Log("Text handler set in keyboard!");
 
