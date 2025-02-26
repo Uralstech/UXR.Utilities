@@ -46,7 +46,7 @@ namespace Uralstech.UXR.Utilities.Editor
             // 1. Create a new empty game object.
             GameObject keyboardManager = new(nameof(XRKeyboardManager));
 
-            // 2. Add the XRKeyboardManager Component to the new Gameobject.
+            // 2. Add the XRKeyboardManager Component to the new GameObject.
             keyboardManager.AddComponent<XRKeyboardManager>();
 
             // 3. Place it in the scene
@@ -72,7 +72,7 @@ namespace Uralstech.UXR.Utilities.Editor
             }
 
             // 2. Construct the prefab path relative to the package root.
-            // Use forward slashes for path since it can be used for both windows and unix paths.
+            // Use forward slashes for path since it can be used for both Windows and Unix paths.
             prefabPath = Path.Combine(packagePath, relativePrefabPath);
 
             // 3. Load the prefab
