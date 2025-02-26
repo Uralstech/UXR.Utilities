@@ -106,13 +106,13 @@ namespace Uralstech.UXR.Utilities
             cameraForward.y = 0f; // Ignore vertical component
 
             float angle = Vector3.Angle(cameraForward, transformDirection);
-            float horizontalSeperationDistance = Vector2.Distance(new(transform.position.x, transform.position.z), new(_playerHeadTransform.position.x, _playerHeadTransform.position.z));
-            float verticalSeperationDistance = Vector2.Distance(new(0, transform.position.y), new(0, _playerHeadTransform.position.y));
+            float horizontalSeparationDistance = Vector2.Distance(new(transform.position.x, transform.position.z), new(_playerHeadTransform.position.x, _playerHeadTransform.position.z));
+            float verticalSeparationDistance = Vector2.Distance(new(0, transform.position.y), new(0, _playerHeadTransform.position.y));
 
-            if (horizontalSeperationDistance > _adjustedUpperDistanceOffset
-                || verticalSeperationDistance > _adjustedUpperHeightOffset
-                || horizontalSeperationDistance < _adjustedLowerDistanceOffset
-                || verticalSeperationDistance < _adjustedLowerHeightOffset
+            if (horizontalSeparationDistance > _adjustedUpperDistanceOffset
+                || verticalSeparationDistance > _adjustedUpperHeightOffset
+                || horizontalSeparationDistance < _adjustedLowerDistanceOffset
+                || verticalSeparationDistance < _adjustedLowerHeightOffset
                 || angle > RotationDelayAngle)
             {
                 _targetPosition = _playerHeadTransform.position + (Quaternion.Euler(0f, _playerHeadTransform.eulerAngles.y, 0f) * Vector3.forward * DistanceOffset) + (Vector3.up * HeightOffset);

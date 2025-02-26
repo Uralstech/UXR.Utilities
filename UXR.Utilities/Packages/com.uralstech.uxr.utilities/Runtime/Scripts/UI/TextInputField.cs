@@ -70,6 +70,17 @@ namespace Uralstech.UXR.Utilities
         [SerializeField, Tooltip("The text which will contain the player's input.")] private TMP_Text _input;
         [SerializeField, Tooltip("Placeholder text for when the field is empty.")] private TMP_Text _placeHolder;
 
+        [TextArea, SerializeField, Tooltip("Default text for the field.")] private string _defaultValue;
+
+#if UNITY_EDITOR
+        /// <inheritdoc/>
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            SetTextWithoutNotify(_defaultValue);
+        }
+#endif
+
         /// <inheritdoc/>
         public virtual void OnPointerClick(PointerEventData eventData)
         {
